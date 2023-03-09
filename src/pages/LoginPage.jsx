@@ -5,13 +5,32 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (event) => {
-
+        event.preventDefault();
+        try {
+            const response = await fetch ('https://blog-api-ifcw.onrender.com/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                // Login was successful, do something here (e.g. redirect to dashboard)
+                console.log('Login successful:', data);
+              } else {
+                // Login failed, show an error message or something
+                console.log('Login failed:', data.message);
+              }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
         <div>
             <h2>Welcome to Login Page</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Username:
                     <input type='text' value={username} onChange={(event) => setUsername(event.target.value)} />
