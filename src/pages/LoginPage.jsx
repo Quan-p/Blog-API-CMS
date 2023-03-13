@@ -20,6 +20,7 @@ const LoginPage = () => {
                 localStorage.setItem('jwtToken', data.token);
                 console.log('Token stored in local storage:', data.token);
                 // Login was successful, do something here (e.g. redirect to dashboard)
+                window.location.href = '/dashboard';
                 console.log('Login successful:', data);
               } else {
                 // Login failed, show an error message or something
