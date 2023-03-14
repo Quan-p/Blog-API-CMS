@@ -38,6 +38,9 @@ const Dashboard = () => {
                             return <div key={post._id}>
                                 <h2>{post.title}</h2>
                                 <h3>{handleGetAuthorUsername(post.author)}</h3>
+                                <p>{post.published.toString()}</p>
+                                <p>{post.date}</p>
+                            
                             </div>
                         })}
                 </div> 
