@@ -17,7 +17,7 @@ const Nav = () => {
             </div>
             <div className="right-container">
                 <Link to='/'>Home</Link>
-                {isLoggedIn && <Link to='posts'>New Post</Link>}
+                {isLoggedIn && <Link to='new_post'>New Post</Link>}
                 {isLoggedIn && <button onClick={handleLogout}>Log Out</button>}
             </div>
             
