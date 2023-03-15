@@ -31,7 +31,7 @@ const Dashboard = () => {
     return (
         <div>
             <div className='posts-container'>
-            {posts ?
+            {posts && users ?
                 <div className="post-container">
                     
                         {posts.map(post => {
