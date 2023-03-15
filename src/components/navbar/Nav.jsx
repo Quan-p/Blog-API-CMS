@@ -13,10 +13,18 @@ const Nav = () => {
     return (
         <div className="nav-container">
             <div className="left-container">
-                <Link to='/' className="title">Quan's Blog</Link>
+                {isLoggedIn ? (
+                    <Link to='/dashboard' className="title">Quan's Blog</Link>
+                ) : (
+                    <Link to='/' className="title">Quan's Blog</Link>
+                )}
             </div>
             <div className="right-container">
-                <Link to='/'>Home</Link>
+                {isLoggedIn ? (
+                    <Link to='/dashboard' >Home</Link>
+                ) : (
+                    <Link to='/'>Home</Link>
+                )}
                 {isLoggedIn && <Link to='new_post'>New Post</Link>}
                 {isLoggedIn && <button onClick={handleLogout}>Log Out</button>}
             </div>
