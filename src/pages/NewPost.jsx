@@ -33,11 +33,11 @@ const NewPost = () => {
             <form onSubmit={handleSubmit}>
                 <label>
                     Title:
-                    <input type='text' value={title} />
+                    <input type='text' value={title} onChange={(event) => setTitle(event.target.value)} />
                 </label>
                 <label>
                     Content:
-                    <input type='password' value={content} />
+                    <input type='password' value={content}  onChange={(event) => setContent(event.target.value)}/>
                 </label>
                 <button type="submit">Create Post</button>
             </form>
