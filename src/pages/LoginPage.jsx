@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
         try {
             const response = await fetch ('https://blog-api-ifcw.onrender.com/login', {
                 method: 'POST',
@@ -29,12 +31,16 @@ const LoginPage = () => {
         } catch (error) {
             console.log(error);
         }
+        setIsLoading(false);
     }
 
     return (
         <div>
             <h2>Welcome to Login Page</h2>
-            <form onSubmit={handleSubmit}>
+            {isLoading ? (
+                <p>Logging In...</p>
+            ) : (
+                <form onSubmit={handleSubmit}>
                 <label>
                     Username:
                     <input type='text' value={username} onChange={(event) => setUsername(event.target.value)} />
@@ -45,6 +51,7 @@ const LoginPage = () => {
                 </label>
                 <button type="submit">Log in</button>
             </form>
+            )}
         </div>
     )
 };
