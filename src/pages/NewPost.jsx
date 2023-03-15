@@ -39,6 +39,13 @@ const NewPost = () => {
                     Content:
                     <input type='password' value={content}  onChange={(event) => setContent(event.target.value)}/>
                 </label>
+                <label>
+                    Published:
+                    <input type="radio" className='published' name='published' value='True' />
+                    <label>True</label>
+                    <input type="radio" className='published' name='published' value='False' />
+                    <label>False</label>
+                </label>
                 <button type="submit">Create Post</button>
             </form>
         </div>
