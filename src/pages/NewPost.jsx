@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const NewPost = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [published, setPublished] = useState();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -12,9 +13,10 @@ const NewPost = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ title, content })
+                body: JSON.stringify({ title, content, published })
             });
             const data = await response.json();
+            console.log(data);
             if (response.ok) {
                 // Login was successful, do something here (e.g. redirect to dashboard)
                 console.log(data);
@@ -37,13 +39,13 @@ const NewPost = () => {
                 </label>
                 <label>
                     Content:
-                    <input type='password' value={content}  onChange={(event) => setContent(event.target.value)}/>
+                    <textarea type='text' value={content}  onChange={(event) => setContent(event.target.value)}/>
                 </label>
                 <label>
                     Published:
-                    <input type="radio" className='published' name='published' value='True' />
+                    <input type="radio" className='published' name='published' value='True' onChange={(event) => setPublished(event.target.value)} />
                     <label>True</label>
-                    <input type="radio" className='published' name='published' value='False' />
+                    <input type="radio" className='published' name='published' value='False' onChange={(event) => setPublished(event.target.value)} checked />
                     <label>False</label>
                 </label>
                 <button type="submit">Create Post</button>
