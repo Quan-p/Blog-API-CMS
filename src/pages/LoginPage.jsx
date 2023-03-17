@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
-    const [username, setUsername] = useState('');
+const LoginPage = ({ setUsernameData }) => {
+    const [username, setUsernameInput] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -17,12 +20,14 @@ const LoginPage = () => {
                 body: JSON.stringify({ username, password })
             });
             const data = await response.json();
+            console.log(data);
             if (response.ok) {
                 // Store the JWT in local storage
                 localStorage.setItem('jwtToken', data.token);
                 console.log('Token stored in local storage:', data.token);
                 // Login was successful, do something here (e.g. redirect to dashboard)
-                window.location.href = '/dashboard';
+                setUsernameData(data);
+                navigate('/dashboard');
                 console.log('Login successful:', data);
               } else {
                 // Login failed, show an error message or something
@@ -43,7 +48,7 @@ const LoginPage = () => {
                 <form onSubmit={handleSubmit}>
                 <label>
                     Username:
-                    <input type='text' value={username} onChange={(event) => setUsername(event.target.value)} />
+                    <input type='text' value={username} onChange={(event) => setUsernameInput(event.target.value)} />
                 </label>
                 <label>
                     Password:
