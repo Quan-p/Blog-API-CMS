@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Dashboard = () => {
+const Dashboard = ({ usernameData }) => {
     const [posts, setPosts] = useState();
     const [users, setUsers] = useState();
 
@@ -26,10 +26,11 @@ const Dashboard = () => {
         fetchData();
     }, []); 
 
-    
+    console.log(usernameData.body.username);
 
     return (
         <div>
+            <h2>Welcome {usernameData.body.username}</h2>
             <div className='posts-container'>
             {posts && users ?
                 <div className="post-container">

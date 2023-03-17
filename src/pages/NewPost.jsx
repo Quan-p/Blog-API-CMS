@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 
-const NewPost = () => {
+const NewPost = ({ usernameData }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [published, setPublished] = useState();
+    const [author, setAuthor] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setAuthor(usernameData.body._id);
         try {
             const response = await fetch ('https://blog-api-ifcw.onrender.com/posts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ title, content, published })
+                body: JSON.stringify({ title, content,author, published })
             });
             const data = await response.json();
             console.log(data);
@@ -40,6 +42,9 @@ const NewPost = () => {
                 <label>
                     Content:
                     <textarea type='text' value={content}  onChange={(event) => setContent(event.target.value)}/>
+                </label>
+                <label>
+                    Author: {usernameData.body.username}
                 </label>
                 <label>
                     Published:
