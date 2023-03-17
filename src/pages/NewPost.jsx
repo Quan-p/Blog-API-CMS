@@ -4,7 +4,6 @@ const NewPost = ({ usernameData }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [published, setPublished] = useState();
-    const [author, setAuthor] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -14,14 +13,20 @@ const NewPost = ({ usernameData }) => {
             alert("Please enter a title and content for your post.");
             return;
         }
-        setAuthor(usernameData.body._id);
+
         try {
             const response = await fetch ('https://blog-api-ifcw.onrender.com/posts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
                 },
-                body: JSON.stringify({ title, content,author, published })
+                body: JSON.stringify({ 
+                    title, 
+                    content,
+                    author: usernameData.body._id, 
+                    published 
+                })
             });
             const data = await response.json();
             console.log(data);
