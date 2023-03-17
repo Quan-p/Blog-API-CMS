@@ -8,6 +8,12 @@ const NewPost = ({ usernameData }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        // Validate title and content fields
+        if (!title.trim() || !content.trim()) {
+            alert("Please enter a title and content for your post.");
+            return;
+        }
         setAuthor(usernameData.body._id);
         try {
             const response = await fetch ('https://blog-api-ifcw.onrender.com/posts', {
