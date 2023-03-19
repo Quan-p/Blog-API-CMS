@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Dashboard = ({ usernameData }) => {
+const Dashboard = () => {
     const [posts, setPosts] = useState();
     const [users, setUsers] = useState();
 
@@ -26,11 +26,9 @@ const Dashboard = ({ usernameData }) => {
         fetchData();
     }, []); 
 
-    console.log(usernameData.body.username);
-
     return (
         <div>
-            <h2>Welcome {usernameData.body.username}</h2>
+            <h2>Welcome</h2>
             <div className='posts-container'>
             {posts && users ?
                 <div className="post-container">
@@ -52,4 +50,4 @@ const Dashboard = ({ usernameData }) => {
     )
 }
 
-export default Dashboard
+export default Dashboard;
