@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage setUsernameData={setUsernameData} />} />
         <Route path="/login" element={<LoginPage setUsernameData={setUsernameData} />} />
         <Route path="/dashboard" element={<Dashboard usernameData={usernameData} />} />
         <Route path="/new_post" element={<NewPost usernameData={usernameData} />} />
@@ -22,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
