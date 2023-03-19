@@ -4,6 +4,16 @@ const NewPost = ({ usernameData }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [published, setPublished] = useState();
+    const [storedData, setStoredData] = useState(null);
+    useEffect(() => {
+    const storedData = sessionStorage.getItem('usernameData');
+    if (storedData) {
+        setStoredData(JSON.parse(storedData));
+    } else {
+        setStoredData(usernameData);
+        sessionStorage.setItem('usernameData', JSON.stringify(usernameData));
+    }
+    }, [usernameData]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -24,7 +34,7 @@ const NewPost = ({ usernameData }) => {
                 body: JSON.stringify({ 
                     title, 
                     content,
-                    author: usernameData.body._id, 
+                    author: storedData.body._id, 
                     published 
                 })
             });
@@ -55,13 +65,13 @@ const NewPost = ({ usernameData }) => {
                     <textarea type='text' value={content}  onChange={(event) => setContent(event.target.value)}/>
                 </label>
                 <label>
-                    Author: {usernameData.body.username}
+                    Author: {storedData?.body?.username}
                 </label>
                 <label>
                     Published:
-                    <input type="radio" className='published' name='published' value='True' onChange={(event) => setPublished(event.target.value)} />
+                    <input type="radio" className='published' name='published' value={true} onChange={(event) => setPublished(event.target.value === true)} />
                     <label>True</label>
-                    <input type="radio" className='published' name='published' value='False' onChange={(event) => setPublished(event.target.value)} checked />
+                    <input type="radio" className='published' name='published' value={false} onChange={(event) => setPublished(event.target.value === false)} checked />
                     <label>False</label>
                 </label>
                 <button type="submit">Create Post</button>
