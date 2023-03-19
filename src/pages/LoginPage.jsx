@@ -5,7 +5,6 @@ const LoginPage = ({ setUsernameData }) => {
     const [username, setUsernameInput] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -20,7 +19,6 @@ const LoginPage = ({ setUsernameData }) => {
                 body: JSON.stringify({ username, password })
             });
             const data = await response.json();
-            console.log(data);
             if (response.ok) {
                 // Store the JWT in local storage
                 localStorage.setItem('jwtToken', data.token);
