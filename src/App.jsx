@@ -5,6 +5,7 @@ import './App.scss'
 import Nav from './components/navbar/Nav';
 import Dashboard from './pages/Dashboard';
 import NewPost from './pages/NewPost';
+import PostDetails from './pages/PostDetails';
 
 function App() {
   const [usernameData, setUsernameData] = useState('');
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<LoginPage setUsernameData={setUsernameData} />} />
         <Route path="/dashboard" element={<Dashboard usernameData={usernameData} />} />
         <Route path="/new_post" element={<NewPost usernameData={usernameData} />} />
+        <Route path='/posts/:postid' element={ <PostDetails /> } />
       </Routes>
     </div>
   )
