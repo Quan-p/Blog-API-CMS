@@ -69,9 +69,9 @@ const NewPost = ({ usernameData }) => {
                 </label>
                 <label>
                     Published:
-                    <input type="radio" className='published' name='published' value={true} onChange={(event) => setPublished(event.target.value === true)} />
+                    <input type="radio" className='published' name='published' value='true' onChange={() => setPublished(true)} />
                     <label>True</label>
-                    <input type="radio" className='published' name='published' value={false} onChange={(event) => setPublished(event.target.value === false)} checked />
+                    <input type="radio" className='published' name='published' value='false' onChange={() => setPublished(false)} checked />
                     <label>False</label>
                 </label>
                 <button type="submit">Create Post</button>
