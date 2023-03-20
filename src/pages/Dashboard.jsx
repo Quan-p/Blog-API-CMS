@@ -39,7 +39,9 @@ const Dashboard = () => {
                                 <h3>{handleGetAuthorUsername(post.author)}</h3>
                                 <p>{post.published.toString()}</p>
                                 <p>{post.date}</p>
-                            
+                                <a href={`/posts/${post._id}`}>
+                                    <button >Edit Post</button>
+                                </a>
                             </div>
                         })}
                 </div> 
