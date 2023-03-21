@@ -13,15 +13,28 @@ const PostDetails = () => {
                 const detailsJson = await postDetails.json();
                 setPostDetails(detailsJson.post);
 
-                const userReq = await fetch(`https://blog-api-ifcw.onrender.com/users/${detailsJson.post.author}`);
-                const userJson = await userReq.json();
-                setAuthor(userJson.user);
+                
             } catch (err) {
                 console.log(err);
             }
         }
         fetchData();
-    }, []); 
+    }, [postId]); 
+
+    useEffect(() => {
+        if(postDetails) {
+            const fetchAuthor = async () => {
+                try {
+                    const userReq = await fetch(`https://blog-api-ifcw.onrender.com/users/${postDetails.author}`);
+                    const userJson = await userReq.json();
+                    setAuthor(userJson.user);
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+            fetchAuthor()
+        }
+    }, [postDetails])
 
     return (
         <div>
