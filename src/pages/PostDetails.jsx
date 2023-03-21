@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 const PostDetails = () => {
     const [postDetails, setPostDetails] = useState();
     const [author, setAuthor] = useState();
-
+    const [formData, setFormData] = useState({});
+    
     const postId = window.location.pathname.split("/").pop();
 
     useEffect(() => {
@@ -36,10 +37,26 @@ const PostDetails = () => {
         }
     }, [postDetails])
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
     return (
         <div>
             Page details
-            <div>{author.username}</div>
+            {postDetails ? 
+                <form>
+                    <label>Title:</label>
+                    <input 
+                        type='text'
+                        value={postDetails.title}
+                        onChange={handleChange}
+                    />
+                </form>
+            : <p>Loading</p>
+            }
+            
         </div>
     )
 }
