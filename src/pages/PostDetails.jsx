@@ -4,7 +4,7 @@ const PostDetails = () => {
     const [postDetails, setPostDetails] = useState();
     const [author, setAuthor] = useState();
     const [formData, setFormData] = useState({});
-    
+
     const postId = window.location.pathname.split("/").pop();
 
     useEffect(() => {
@@ -50,8 +50,21 @@ const PostDetails = () => {
                     <label>Title:</label>
                     <input 
                         type='text'
+                        name='title'
                         value={postDetails.title}
                         onChange={handleChange}
+                    />
+                    <label>Content:</label>
+                    <textarea 
+                        name='content'
+                        value={postDetails.content}
+                        onChange={handleChange}
+                    />
+                    <label>Published:</label>
+                    <input 
+                        type='checkbox'
+                        name='published'
+                        checked={postDetails.published}
                     />
                 </form>
             : <p>Loading</p>
