@@ -38,8 +38,14 @@ const PostDetails = () => {
     }, [postDetails])
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
+        const { name, value, type, checked } = event.target;
+        if(type === 'checkbox') {
+            setPostDetails({...postDetails, [name]: checked});
+        } else {
+            setPostDetails({...postDetails, [name]: value});
+            setFormData({ ...formData, [name]: value });
+        }
+        
     };
 
     const handleSubmit = async (event) => {
