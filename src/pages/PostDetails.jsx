@@ -51,24 +51,14 @@ const PostDetails = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Validate title and content fields
-        if (!title.trim() || !content.trim()) {
-            alert("Please enter a title and content for your post.");
-            return;
-        }
-
         try {
-            const response = await fetch (`https://blog-api-ifcw.onrender.com/users/${postId}`, {
+            const response = await fetch (`https://blog-api-ifcw.onrender.com/posts/${postId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
                 },
-                body: JSON.stringify({ 
-                    title, 
-                    content, 
-                    published 
-                })
+                body: JSON.stringify(postDetails)
             });
             const data = await response.json();
             console.log(data);
