@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import './nav.scss';
 
-const Nav = () => {
-    const isLoggedIn = !!localStorage.getItem('jwtToken');
+const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
+    const navigate = useNavigate();
+
+    const checkAuthentication = () => {
+        const jwtToken = localStorage.getItem('jwtToken');
+        setIsLoggedIn(!!jwtToken);
+    }
 
     const handleLogout = () => {
         localStorage.removeItem('jwtToken');
-        window.location.href = '/login';
+        localStorage.removeItem('username');
+        setIsLoggedIn(false);
+        navigate('/login');
+        // window.location.href = '/login';
     }
+
+    useEffect(() => {
+        checkAuthentication();
+    }, []);
 
     return (
         <div className="nav-container">
