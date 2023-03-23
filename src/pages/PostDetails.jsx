@@ -91,6 +91,7 @@ const PostDetails = () => {
             if (response.ok) {
                 // Delete was successful
                 console.log('Post deleted successfully');
+                navigate('/dashboard');
             } else {
                 // Delete failed
                 console.log('Login failed:', data.message);
