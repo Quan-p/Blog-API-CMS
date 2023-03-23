@@ -8,16 +8,16 @@ import NewPost from './pages/NewPost';
 import PostDetails from './pages/PostDetails';
 
 function App() {
-  const [usernameData, setUsernameData] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className="App">
-      <Nav />
+      <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
-        <Route path="/" element={<LoginPage setUsernameData={setUsernameData} />} />
-        <Route path="/login" element={<LoginPage setUsernameData={setUsernameData} />} />
-        <Route path="/dashboard" element={<Dashboard usernameData={usernameData} />} />
-        <Route path="/new_post" element={<NewPost usernameData={usernameData} />} />
+        <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/new_post" element={<NewPost />} />
         <Route path='/posts/:postid' element={ <PostDetails /> } />
       </Routes>
     </div>
