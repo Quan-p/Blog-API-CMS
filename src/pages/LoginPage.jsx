@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = ({ setUsernameData }) => {
+const LoginPage = ({ setIsLoggedIn }) => {
     const [username, setUsernameInput] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -22,9 +22,9 @@ const LoginPage = ({ setUsernameData }) => {
             if (response.ok) {
                 // Store the JWT in local storage
                 localStorage.setItem('jwtToken', data.token);
+                localStorage.setItem('username', data.body.username);
+                setIsLoggedIn(true);
                 console.log('Token stored in local storage:', data.token);
-                // Login was successful, do something here (e.g. redirect to dashboard)
-                setUsernameData(data);
                 navigate('/dashboard');
                 console.log('Login successful:', data);
               } else {
