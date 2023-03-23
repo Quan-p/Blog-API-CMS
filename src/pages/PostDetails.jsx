@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const PostDetails = () => {
     const [postDetails, setPostDetails] = useState();
@@ -7,6 +8,7 @@ const PostDetails = () => {
     const [confirmDelete, setConfirmDelete] = useState(false);
 
     const postId = window.location.pathname.split("/").pop();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -75,11 +77,26 @@ const PostDetails = () => {
         }
     }
 
-    const handleDelete = () => {
-        const confirmed = window.confirm('Are you sure you want to delete?');
-    
-        if(confirmed) {
+    const handleDelete = async (event) => {
+        event.preventDefault();
 
+        try {
+            const response = await fetch (`https://blog-api-ifcw.onrender.com/posts/${postId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem("jwtToken")}`
+                }
+            });
+            if (response.ok) {
+                // Delete was successful
+                console.log('Post deleted successfully');
+            } else {
+                // Delete failed
+                console.log('Login failed:', data.message);
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
