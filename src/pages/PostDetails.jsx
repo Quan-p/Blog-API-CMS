@@ -4,6 +4,7 @@ const PostDetails = () => {
     const [postDetails, setPostDetails] = useState();
     const [author, setAuthor] = useState();
     const [formData, setFormData] = useState({});
+    const [confirmDelete, setConfirmDelete] = useState(false);
 
     const postId = window.location.pathname.split("/").pop();
 
@@ -74,6 +75,14 @@ const PostDetails = () => {
         }
     }
 
+    const handleDelete = () => {
+        const confirmed = window.confirm('Are you sure you want to delete?');
+    
+        if(confirmed) {
+
+        }
+    }
+
     return (
         <div>
             Page details
@@ -101,9 +110,17 @@ const PostDetails = () => {
                     />
                     <button type="submit">Update Post</button>
                 </form>
+                
             : <p>Loading</p>
             }
-            
+            <button onClick={() => setConfirmDelete(true)}>Delete Post</button>
+                {confirmDelete && (
+                    <div>
+                        <p>Are you sure you want to delete?</p>
+                        <button onClick={handleDelete}>Yes</button>
+                        <button onClick={() => setConfirmDelete(false)}>No</button>
+                    </div>
+                )}
         </div>
     )
 }
