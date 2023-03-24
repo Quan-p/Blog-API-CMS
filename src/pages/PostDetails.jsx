@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import Comments from "../components/comments/Comments";
 
 const PostDetails = () => {
     const [postDetails, setPostDetails] = useState();
@@ -127,6 +128,7 @@ const PostDetails = () => {
                         onChange={handleChange}
                     />
                     <button type="submit">Update Post</button>
+                    <Comments postId={postId}/>
                 </form>
                 
             : <p>Loading</p>
