@@ -14,6 +14,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
     const handleLogout = () => {
         localStorage.removeItem('jwtToken');
         localStorage.removeItem('username');
+        localStorage.removeItem('authorId');
         setIsLoggedIn(false);
         navigate('/login');
         // window.location.href = '/login';
