@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const NewPost = ({ usernameData }) => {
+const NewPost = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [published, setPublished] = useState();
-    const [storedData, setStoredData] = useState(null);
-    useEffect(() => {
-    const storedData = sessionStorage.getItem('usernameData');
-    if (storedData) {
-        setStoredData(JSON.parse(storedData));
-    } else {
-        setStoredData(usernameData);
-        sessionStorage.setItem('usernameData', JSON.stringify(usernameData));
-    }
-    }, [usernameData]);
+    
+    const username = localStorage.getItem('username');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -34,7 +26,7 @@ const NewPost = ({ usernameData }) => {
                 body: JSON.stringify({ 
                     title, 
                     content,
-                    author: storedData.body._id, 
+                    author: localStorage.getItem('authorId'), 
                     published 
                 })
             });
@@ -65,7 +57,7 @@ const NewPost = ({ usernameData }) => {
                     <textarea type='text' value={content}  onChange={(event) => setContent(event.target.value)}/>
                 </label>
                 <label>
-                    Author: {storedData?.body?.username}
+                    Author: {username}
                 </label>
                 <label>
                     Published:
