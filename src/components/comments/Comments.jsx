@@ -19,6 +19,8 @@ const Comments = ({ postId }) => {
                 // Delete was successful
                 console.log('Comment deleted successfully');
                 // navigate('/dashboard');
+                // filter comment array to re-render comments
+                setComments(comments.filter(comment => comment._id !== commentId));
             } else {
                 // Delete failed
                 console.log('Delete failed:', data.message);
