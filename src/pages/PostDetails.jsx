@@ -105,6 +105,14 @@ const PostDetails = () => {
     return (
         <div>
             Page details
+            <button onClick={() => setConfirmDelete(true)}>Delete Post</button>
+                {confirmDelete && (
+                    <div>
+                        <p>Are you sure you want to delete?</p>
+                        <button onClick={handleDelete}>Yes</button>
+                        <button onClick={() => setConfirmDelete(false)}>No</button>
+                    </div>
+                )}
             {postDetails ? 
                 <form onSubmit={handleSubmit}>
                     <label>Title:</label>
@@ -133,14 +141,6 @@ const PostDetails = () => {
                 
             : <p>Loading</p>
             }
-            <button onClick={() => setConfirmDelete(true)}>Delete Post</button>
-                {confirmDelete && (
-                    <div>
-                        <p>Are you sure you want to delete?</p>
-                        <button onClick={handleDelete}>Yes</button>
-                        <button onClick={() => setConfirmDelete(false)}>No</button>
-                    </div>
-                )}
         </div>
     )
 }
