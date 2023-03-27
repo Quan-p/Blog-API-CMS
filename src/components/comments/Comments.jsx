@@ -4,6 +4,30 @@ const Comments = ({ postId }) => {
     const [comments, setComments] = useState();
     const [confirmDelete, setConfirmDelete] = useState(false);
 
+    const handleDelete = async (event, commentId) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch (`https://blog-api-ifcw.onrender.com/posts/${postId}/comments/${commentId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem("jwtToken")}`
+                }
+            });
+            if (response.ok) {
+                // Delete was successful
+                console.log('Comment deleted successfully');
+                // navigate('/dashboard');
+            } else {
+                // Delete failed
+                console.log('Delete failed:', data.message);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -27,12 +51,12 @@ const Comments = ({ postId }) => {
                                 <h2>{comment.user}</h2>
                                 <p>{comment.date}</p>
                                 <p>{comment.text}</p>
-                                <button onClick={() => setConfirmDelete(true)}>Delete</button>
+                                <button type="button" onClick={() => setConfirmDelete(true)}>Delete</button>
                                     {confirmDelete && (
                                         <div>
                                             <p>Are you sure you want to delete?</p>
-                                            <button onClick={handleDelete}>Yes</button>
-                                            <button onClick={() => setConfirmDelete(false)}>No</button>
+                                            <button type="button" onClick={(event) => handleDelete(event, comment._id)}>Yes</button>
+                                            <button type="button" onClick={() => setConfirmDelete(false)}>No</button>
                                         </div>
                                     )}
                             </div>
