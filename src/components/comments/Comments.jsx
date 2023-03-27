@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 
 const Comments = ({ postId }) => {
     const [comments, setComments] = useState();
-    const [confirmDelete, setConfirmDelete] = useState(false);
+    const [commentId, setCommentId] = useState();
+    const [showModal, setShowModal] = useState(false);
 
-    const handleDelete = async (event, commentId) => {
-        event.preventDefault();
+    const handleDelete = (commentId) => {
+        console.log(commentId);
+        setCommentId(commentId);
+        setShowModal(true)
+    }
 
+    const handleDeleteConfirmed = async () => {
         try {
             const response = await fetch (`https://blog-api-ifcw.onrender.com/posts/${postId}/comments/${commentId}`, {
                 method: 'DELETE',
@@ -21,6 +26,7 @@ const Comments = ({ postId }) => {
                 // navigate('/dashboard');
                 // filter comment array to re-render comments
                 setComments(comments.filter(comment => comment._id !== commentId));
+                setShowModal(false);
             } else {
                 // Delete failed
                 console.log('Delete failed:', data.message);
@@ -53,19 +59,19 @@ const Comments = ({ postId }) => {
                                 <h2>{comment.user}</h2>
                                 <p>{comment.date}</p>
                                 <p>{comment.text}</p>
-                                <button type="button" onClick={() => setConfirmDelete(true)}>Delete</button>
-                                    {confirmDelete && (
-                                        <div>
-                                            <p>Are you sure you want to delete?</p>
-                                            <button type="button" onClick={(event) => handleDelete(event, comment._id)}>Yes</button>
-                                            <button type="button" onClick={() => setConfirmDelete(false)}>No</button>
-                                        </div>
-                                    )}
+                                <button type="button" onClick={() => handleDelete(comment._id)}>Delete</button>
                             </div>
                         })}
                 </div> 
                 : <p>Comments loading</p>
             }
+            {showModal && (
+                <div className="modal">
+                    <p>Are you sure you want to delete this comment?</p>
+                    <button type="button" onClick={handleDeleteConfirmed}>Yes</button>
+                    <button type="button" onClick={() => setShowModal(false)}>No</button>
+                </div>
+            )}
         </div>
     )
 }
