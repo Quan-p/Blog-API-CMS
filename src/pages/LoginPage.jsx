@@ -40,8 +40,8 @@ const LoginPage = ({ setIsLoggedIn }) => {
     }
 
     return (
-        <div className="login-container">
-            <h2>Welcome to Login Page</h2>
+        <div className="body">
+            <div className="login-container">
             {isLoading ? (
                 <p>Logging In...</p>
             ) : (
@@ -58,6 +58,8 @@ const LoginPage = ({ setIsLoggedIn }) => {
             </form>
             )}
         </div>
+        </div>
+        
     )
 };
 
