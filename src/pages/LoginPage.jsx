@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import './loginPage.scss';
 
 const LoginPage = ({ setIsLoggedIn }) => {
     const [username, setUsernameInput] = useState('');
@@ -39,12 +40,12 @@ const LoginPage = ({ setIsLoggedIn }) => {
     }
 
     return (
-        <div>
+        <div className="login-container">
             <h2>Welcome to Login Page</h2>
             {isLoading ? (
                 <p>Logging In...</p>
             ) : (
-                <form onSubmit={handleSubmit}>
+                <form className='login-form' onSubmit={handleSubmit}>
                 <label>
                     Username:
                     <input type='text' value={username} onChange={(event) => setUsernameInput(event.target.value)} />
