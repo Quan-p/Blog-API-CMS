@@ -54,7 +54,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
                     Password:
                 </label>
                 <input type='password' value={password} onChange={(event) => setPassword(event.target.value)} />
-                <button type="submit">Log in</button>
+                <button className='login-btn' type="submit">Log in</button>
             </form>
             )}
         </div>
