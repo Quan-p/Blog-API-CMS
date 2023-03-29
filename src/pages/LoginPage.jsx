@@ -48,12 +48,12 @@ const LoginPage = ({ setIsLoggedIn }) => {
                 <form className='login-form' onSubmit={handleSubmit}>
                 <label>
                     Username:
-                    <input type='text' value={username} onChange={(event) => setUsernameInput(event.target.value)} />
                 </label>
+                <input type='text' value={username} onChange={(event) => setUsernameInput(event.target.value)} />
                 <label>
                     Password:
-                    <input type='password' value={password} onChange={(event) => setPassword(event.target.value)} />
                 </label>
+                <input type='password' value={password} onChange={(event) => setPassword(event.target.value)} />
                 <button type="submit">Log in</button>
             </form>
             )}
