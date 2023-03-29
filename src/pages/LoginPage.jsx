@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { BounceLoader } from "react-spinners";
 import './loginPage.scss';
 
 const LoginPage = ({ setIsLoggedIn }) => {
@@ -43,7 +44,11 @@ const LoginPage = ({ setIsLoggedIn }) => {
         <div className="body">
             <div className="login-container">
             {isLoading ? (
-                <p>Logging In...</p>
+                <BounceLoader
+                color="#D4A373"
+                size={25}
+                //cssOverride={ override }
+            />
             ) : (
                 <form className='login-form' onSubmit={handleSubmit}>
                 <label>
