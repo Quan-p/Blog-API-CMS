@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './dashboard.scss';
 
 const Dashboard = () => {
     const [posts, setPosts] = useState();
@@ -27,7 +28,7 @@ const Dashboard = () => {
     }, []); 
 
     return (
-        <div>
+        <div className="dashboard-container">
             <h2>Welcome</h2>
             <div className='posts-container'>
             {posts && users ?
