@@ -40,7 +40,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
                     <Link to='/'>Home</Link>
                 )}
                 {isLoggedIn && <Link to='new_post'>New Post</Link>}
-                {isLoggedIn && <button onClick={handleLogout}>Log Out</button>}
+                {isLoggedIn && <button className='logout-btn' onClick={handleLogout}>Log Out</button>}
             </div>
             
         </div>
