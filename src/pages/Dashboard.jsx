@@ -29,7 +29,7 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-container">
-            <h2>Welcome</h2>
+            <h2 className="dashboard-header">Welcome</h2>
             <div className='posts-container'>
             {posts && users ?
                 <div className="post-container">
