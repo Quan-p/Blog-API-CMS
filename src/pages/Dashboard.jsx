@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BounceLoader } from "react-spinners";
 import './dashboard.scss';
 
 const Dashboard = () => {
@@ -27,6 +28,8 @@ const Dashboard = () => {
         fetchData();
     }, []); 
 
+
+
     return (
         <div className="dashboard-container">
             <h2 className="dashboard-header">Welcome</h2>
@@ -46,7 +49,10 @@ const Dashboard = () => {
                             </div>
                         })}
                 </div> 
-                : <p>Posts loading</p>
+                : <BounceLoader
+                color="#D4A373"
+                size={25}
+            />
             }
             </div>
         </div>
