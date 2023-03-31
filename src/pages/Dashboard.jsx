@@ -39,7 +39,7 @@ const Dashboard = () => {
                                 <h2>{post.title}</h2>
                                 <h3>{handleGetAuthorUsername(post.author)}</h3>
                                 <p>{post.published.toString()}</p>
-                                <p>{post.date}</p>
+                                <p>{new Date(post.date).toLocaleString()}</p>
                                 <a href={`/posts/${post._id}`}>
                                     <button >Edit Post</button>
                                 </a>
