@@ -35,20 +35,22 @@ const Dashboard = () => {
             <h2 className="dashboard-header">Welcome {localStorage.getItem('username')}</h2>
             <div className='posts-container'>
             {posts && users ?
-                <div className="post-container">
-                    
-                        {posts.map(post => {
-                            return <div key={post._id}>
-                                <h2>{post.title}</h2>
-                                <h3>{handleGetAuthorUsername(post.author)}</h3>
-                                <p>{post.published.toString()}</p>
-                                <p>{new Date(post.date).toLocaleString()}</p>
+                <div>
+                    {posts.map(post => {
+                        return <div className="post-container" key={post._id}>
+                            <div className="post-content">
+                                <h2 className="title-header">Post Title: {post.title}</h2>
+                                <h3>Author: {handleGetAuthorUsername(post.author)}</h3>
+                                <p>Published: {post.published.toString()}</p>
+                                <p>Date Written: {new Date(post.date).toLocaleString()}</p>
                                 <a href={`/posts/${post._id}`}>
                                     <button >Edit Post</button>
                                 </a>
                             </div>
-                        })}
-                </div> 
+                            
+                        </div>
+                    })}
+                </div>
                 : <BounceLoader
                 color="#D4A373"
                 size={25}
