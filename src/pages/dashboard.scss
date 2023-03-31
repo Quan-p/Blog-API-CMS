@@ -4,5 +4,19 @@
 
     .dashboard-header {
         margin: 0;
+        font-size: 2rem;
+    }
+
+    .post-container {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 15px;
+    
+        .post-content {
+            padding: 20px;
+            margin-bottom: 20px;
+            .title-header {
+                margin: 0;
+            }
+        }
     }
 }
