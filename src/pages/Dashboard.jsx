@@ -33,9 +33,9 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container">
             <h2 className="dashboard-header">Welcome {localStorage.getItem('username')}</h2>
-            <div className='posts-container'>
+            <div className="dashboard-content">
             {posts && users ?
-                <div>
+                <div className='posts-container'>
                     {posts.map(post => {
                         return <div className="post-container" key={post._id}>
                             <div className="post-content">
