@@ -7,13 +7,37 @@
         font-size: 2rem;
     }
 
+    .dashboard-content {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .posts-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 0 auto;
+        max-width: 1800px;
+    }
+
     .post-container {
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         border-radius: 15px;
-    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width:  25%;
+        min-width: 20%;
+        flex-wrap: wrap;
+        margin: 20px;
+
         .post-content {
             padding: 20px;
-            margin-bottom: 20px;
+            
             .title-header {
                 margin: 0;
             }
