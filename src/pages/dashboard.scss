@@ -20,7 +20,6 @@
         flex-direction: row;
         justify-content: flex-start;
         margin: 0 auto;
-        max-width: 1800px;
     }
 
     .post-container {
@@ -30,9 +29,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        max-width:  25%;
-        min-width: 20%;
-        flex-wrap: wrap;
+        flex: 1 0 25%;
         margin: 20px;
 
         .post-content {
