@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Comments from "../components/comments/Comments";
+import './postDetails.scss';
 
 const PostDetails = () => {
     const [postDetails, setPostDetails] = useState();
@@ -104,15 +105,8 @@ const PostDetails = () => {
 
     return (
         <div>
-            Page details
-            <button onClick={() => setConfirmDelete(true)}>Delete Post</button>
-                {confirmDelete && (
-                    <div>
-                        <p>Are you sure you want to delete?</p>
-                        <button onClick={handleDelete}>Yes</button>
-                        <button onClick={() => setConfirmDelete(false)}>No</button>
-                    </div>
-                )}
+            <h2 className="details-header">Post Details</h2>
+            {/* <button onClick={() => setConfirmDelete(true)}>Delete Post</button> */}
             {postDetails ? 
                 <form onSubmit={handleSubmit}>
                     <label>Title:</label>
@@ -136,6 +130,14 @@ const PostDetails = () => {
                         onChange={handleChange}
                     />
                     <button type="submit">Update Post</button>
+                    <button onClick={() => setConfirmDelete(true)}>Delete Post</button>
+                    {confirmDelete && (
+                        <div>
+                            <p>Are you sure you want to delete?</p>
+                            <button onClick={handleDelete}>Yes</button>
+                            <button onClick={() => setConfirmDelete(false)}>No</button>
+                        </div>
+                    )}
                     <Comments postId={postId}/>
                 </form>
                 
