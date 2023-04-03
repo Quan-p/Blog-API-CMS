@@ -15,11 +15,10 @@
     }
 
     .posts-container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         margin: 0 auto;
+        max-width: 100%;
     }
 
     .post-container {
@@ -29,7 +28,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex: 1 0 25%;
         margin: 20px;
 
         .post-content {
