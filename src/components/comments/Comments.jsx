@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './comments.scss';
 
 const Comments = ({ postId }) => {
     const [comments, setComments] = useState();
@@ -50,10 +51,10 @@ const Comments = ({ postId }) => {
     }, []); 
 
     return (
-        <div>
+        <div className="comments-container">
             This is the Comments Section
             {comments ?
-                <div className="comments-container">
+                <div className="comments-list">
                         {comments.map(comment => {
                             return <div key={comment._id}>
                                 <h2>{comment.user}</h2>
