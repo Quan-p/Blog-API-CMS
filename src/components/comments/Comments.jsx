@@ -77,9 +77,9 @@ const Comments = ({ postId }) => {
             }
             {showModal && (
                 <div className="modal">
-                    <p>Are you sure you want to delete this comment?</p>
-                    <button type="button" onClick={handleDeleteConfirmed}>Yes</button>
-                    <button type="button" onClick={() => setShowModal(false)}>No</button>
+                    <p className="confirm-message">Are you sure you want to delete this comment?</p>
+                    <button className="confirm-yes" type="button" onClick={handleDeleteConfirmed}>Yes</button>
+                    <button className="confirm-no" type="button" onClick={() => setShowModal(false)}>No</button>
                 </div>
             )}
         </div>
