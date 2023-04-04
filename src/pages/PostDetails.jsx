@@ -138,11 +138,10 @@ const PostDetails = () => {
                             <button onClick={() => setConfirmDelete(false)}>No</button>
                         </div>
                     )}
-                    <Comments postId={postId}/>
                 </form>
-                
             : <p>Loading</p>
             }
+            <Comments postId={postId}/>
         </div>
     )
 }
