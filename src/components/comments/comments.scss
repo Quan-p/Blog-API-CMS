@@ -5,6 +5,11 @@
     margin: 40px;
     padding: 40px;
 
+    .comments-header {
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+    }
+
     .comments-list div {
         display: flex;
         flex-direction: column;
@@ -13,7 +18,7 @@
     }
 
     .comment-item {
-        border-bottom: 1px solid #D4A373;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
     }
 
     label {
