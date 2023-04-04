@@ -57,9 +57,18 @@ const Comments = ({ postId }) => {
                 <div className="comments-list">
                         {comments.map(comment => {
                             return <div key={comment._id}>
-                                <h2>{comment.user}</h2>
-                                <p>{comment.date}</p>
-                                <p>{comment.text}</p>
+                                <label>
+                                    Author:
+                                    <h3 className="author-header">{comment.user}</h3>
+                                </label>
+                                <label>
+                                    Date:
+                                    <h4 className="date-header">{comment.date}</h4>
+                                </label>
+                                <label>
+                                    Comment:
+                                    <p className="comment-text">{comment.text}</p>
+                                </label>
                                 <button type="button" onClick={() => handleDelete(comment._id)}>Delete</button>
                             </div>
                         })}
