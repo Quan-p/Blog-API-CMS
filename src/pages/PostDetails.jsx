@@ -108,7 +108,7 @@ const PostDetails = () => {
             <h2 className="details-header">Post Details</h2>
             {/* <button onClick={() => setConfirmDelete(true)}>Delete Post</button> */}
             {postDetails ? 
-                <form onSubmit={handleSubmit}>
+                <form className='edit-form' onSubmit={handleSubmit}>
                     <label>Title:</label>
                     <input 
                         type='text'
