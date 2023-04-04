@@ -104,7 +104,7 @@ const PostDetails = () => {
     }
 
     return (
-        <div>
+        <div className="details-container">
             <h2 className="details-header">Post Details</h2>
             {/* <button onClick={() => setConfirmDelete(true)}>Delete Post</button> */}
             {postDetails ? 
