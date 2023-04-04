@@ -52,7 +52,7 @@ const Comments = ({ postId }) => {
 
     return (
         <div className="comments-container">
-            This is the Comments Section
+            <h2>Comments Section</h2>
             {comments ?
                 <div className="comments-list">
                         {comments.map(comment => {
