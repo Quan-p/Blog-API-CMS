@@ -1,14 +1,19 @@
 .comments-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 15px;
+    margin: 40px;
+    padding: 40px;
 
     .comments-list div {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .comment-item {
+        border-bottom: 1px solid #D4A373;
     }
 
     label {
