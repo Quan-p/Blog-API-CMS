@@ -133,7 +133,7 @@ const PostDetails = () => {
                     <button type="button" onClick={() => setConfirmDelete(true)}>Delete Post</button>
                     {confirmDelete && (
                         <div>
-                            <p>Are you sure you want to delete?</p>
+                            <p className="confirm-msg">Are you sure you want to delete?</p>
                             <button onClick={handleDelete}>Yes</button>
                             <button onClick={() => setConfirmDelete(false)}>No</button>
                         </div>

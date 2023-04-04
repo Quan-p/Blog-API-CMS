@@ -12,6 +12,10 @@
     margin: 40px;
     padding: 40px;
 
+    label {
+        font-size: 1.5rem;
+    }
+
     input {
         width: 600px;
         height: 20px;
@@ -42,5 +46,9 @@
 
     button:hover {
         color:#FEFAE0;
+    }
+
+    .confirm-msg {
+        text-align: center;
     }
 }
