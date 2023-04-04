@@ -7,4 +7,24 @@
     border-radius: 15px;
     margin: 40px;
     padding: 40px;
+
+    input {
+        width: 600px;
+        height: 20px;
+        font-size: 1rem;
+        border-radius: 15px;
+        border: none;
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    textarea {
+        width: 600px;
+        height: 300px;
+        font-size: 1rem;
+        border-radius: 15px;
+        border: none;
+        padding: 15px;
+        margin: 10px 0;
+    }
 }
