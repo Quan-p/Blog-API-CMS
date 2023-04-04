@@ -130,7 +130,7 @@ const PostDetails = () => {
                         onChange={handleChange}
                     />
                     <button type="submit">Update Post</button>
-                    <button onClick={() => setConfirmDelete(true)}>Delete Post</button>
+                    <button type="button" onClick={() => setConfirmDelete(true)}>Delete Post</button>
                     {confirmDelete && (
                         <div>
                             <p>Are you sure you want to delete?</p>
