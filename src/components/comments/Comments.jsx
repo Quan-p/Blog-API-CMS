@@ -52,11 +52,11 @@ const Comments = ({ postId }) => {
 
     return (
         <div className="comments-container">
-            <h2>Comments Section</h2>
+            <h2 className="comments-header">Comments Section</h2>
             {comments ?
                 <div className="comments-list">
                         {comments.map(comment => {
-                            return <div key={comment._id}>
+                            return <div className="comment-item" key={comment._id}>
                                 <label>
                                     Author:
                                     <h3 className="author-header">{comment.user}</h3>
