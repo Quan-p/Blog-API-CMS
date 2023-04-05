@@ -54,25 +54,21 @@ const NewPost = () => {
 		<div className='form-container'>
 			<h2 className='newPost-header'>Create a New Post</h2>
 			<form className='newPost-form' onSubmit={handleSubmit}>
-				<label>
-					Title:
-					<input
-						type='text'
-						value={title}
-						onChange={(event) => setTitle(event.target.value)}
-					/>
-				</label>
-				<label>
-					Content:
-					<textarea
-						type='text'
-						value={content}
-						onChange={(event) => setContent(event.target.value)}
-					/>
-				</label>
+				<label>Title:</label>
+				<input
+					type='text'
+					value={title}
+					onChange={(event) => setTitle(event.target.value)}
+				/>
+				<label>Content:</label>
+				<textarea
+					type='text'
+					value={content}
+					onChange={(event) => setContent(event.target.value)}
+				/>
 				<label>Author: {username}</label>
-				<label>
-					Published:
+				<label>Published:</label>
+				<div className='published-container'>
 					<input
 						type='radio'
 						className='published'
@@ -81,6 +77,8 @@ const NewPost = () => {
 						onChange={() => setPublished(true)}
 					/>
 					<label>True</label>
+				</div>
+				<div className='published-container'>
 					<input
 						type='radio'
 						className='published'
@@ -90,8 +88,10 @@ const NewPost = () => {
 						checked
 					/>
 					<label>False</label>
-				</label>
-				<button type='submit'>Create Post</button>
+				</div>
+				<button className='' type='submit'>
+					Create Post
+				</button>
 			</form>
 		</div>
 	);
