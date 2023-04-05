@@ -18,5 +18,53 @@
 		border-radius: 15px;
 		padding: 40px;
 		margin: 40px;
+
+		label {
+			font-size: 1.5rem;
+		}
+
+		input {
+			width: 600px;
+			height: 20px;
+			font-size: 1rem;
+			border-radius: 15px;
+			border: none;
+			padding: 15px;
+			margin: 10px 0;
+		}
+
+		textarea {
+			width: 600px;
+			height: 300px;
+			font-size: 1rem;
+			border-radius: 15px;
+			border: none;
+			padding: 15px;
+			margin: 10px 0;
+		}
+
+		button {
+			margin: 10px;
+			padding: 20px;
+			width: 150px;
+			border-radius: 25px;
+			background-color: #ccd5ae;
+			font-size: 1.2rem;
+		}
+
+		button:hover {
+			color: #fefae0;
+		}
+
+		.published-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+
+			.published {
+				width: 20px;
+			}
+		}
 	}
 }
