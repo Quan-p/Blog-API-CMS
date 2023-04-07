@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BounceLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
 import './dashboard.scss';
 
 const Dashboard = () => {
@@ -63,9 +64,9 @@ const Dashboard = () => {
 												post.date
 											).toLocaleString()}
 										</p>
-										<a href={`/posts/${post._id}`}>
+										<Link to={`/posts/${post._id}`}>
 											<button>Edit Post</button>
-										</a>
+										</Link>
 									</div>
 								</div>
 							);
