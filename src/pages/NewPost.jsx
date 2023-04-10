@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './newPost.scss';
 
 const NewPost = () => {
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
 	const [published, setPublished] = useState();
+	const [showModal, setShowModal] = useState(false);
 
 	const username = localStorage.getItem('username');
 
@@ -39,10 +42,11 @@ const NewPost = () => {
 			const data = await response.json();
 			console.log(data);
 			if (response.ok) {
-				// Login was successful, do something here (e.g. redirect to dashboard)
+				// Post created successfully
+				setShowModal(true);
 				console.log(data);
 			} else {
-				// Login failed, show an error message or something
+				// New post failed, show an error message
 				console.log('Login failed:', data.message);
 			}
 		} catch (error) {
@@ -93,6 +97,21 @@ const NewPost = () => {
 					Create Post
 				</button>
 			</form>
+			{showModal && (
+				<div className='modal'>
+					<p className='confirm-message'>
+						New Post Created Successfully.
+					</p>
+					<Link onClick={() => window.location.reload()}>
+						<button onClick={() => setShowModal(false)}>
+							Create a New Post
+						</button>
+					</Link>
+					<Link to={`/dashboard`} onClick={() => setShowModal(false)}>
+						<button>Home</button>
+					</Link>
+				</div>
+			)}
 		</div>
 	);
 };
