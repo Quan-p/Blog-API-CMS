@@ -44,6 +44,9 @@ const NewPost = () => {
 			if (response.ok) {
 				// Post created successfully
 				setShowModal(true);
+				setTitle('');
+				setContent('');
+				setPublished(false);
 				console.log(data);
 			} else {
 				// New post failed, show an error message
@@ -102,7 +105,7 @@ const NewPost = () => {
 					<p className='confirm-message'>
 						New Post Created Successfully.
 					</p>
-					<Link onClick={() => window.location.reload()}>
+					<Link to={`/new_post`}>
 						<button onClick={() => setShowModal(false)}>
 							Create a New Post
 						</button>
