@@ -36,7 +36,7 @@ const Dashboard = () => {
 	return (
 		<div className='dashboard-container'>
 			<h2 className='dashboard-header'>
-				Welcome {localStorage.getItem('username')}
+				Welcome {sessionStorage.getItem('username')}
 			</h2>
 			<div className='dashboard-content'>
 				{posts && users ? (

@@ -26,9 +26,9 @@ const LoginPage = ({ setIsLoggedIn }) => {
 			const data = await response.json();
 			if (response.ok) {
 				// Store the JWT in local storage
-				localStorage.setItem('jwtToken', data.token);
-				localStorage.setItem('username', data.body.username);
-				localStorage.setItem('authorId', data.body._id);
+				sessionStorage.setItem('jwtToken', data.token);
+				sessionStorage.setItem('username', data.body.username);
+				sessionStorage.setItem('authorId', data.body._id);
 				setIsLoggedIn(true);
 				console.log('Token stored in local storage:', data.token);
 				navigate('/dashboard');

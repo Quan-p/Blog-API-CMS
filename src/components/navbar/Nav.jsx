@@ -12,9 +12,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
 	};
 
 	const handleLogout = () => {
-		localStorage.removeItem('jwtToken');
-		localStorage.removeItem('username');
-		localStorage.removeItem('authorId');
+		sessionStorage.removeItem('jwtToken');
+		sessionStorage.removeItem('username');
+		sessionStorage.removeItem('authorId');
 		setIsLoggedIn(false);
 		navigate('/login');
 	};
