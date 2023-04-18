@@ -21,11 +21,11 @@ This full stack web app was part of the self-taught education of The Odin Projec
 
 Creating a blog from the ground up was an opportunity to further develop REST API skills and to demonstrate the power and flexibility of separating backend code from frontend code.
 
-### Navigating the Blog
+### Loggin into CMS
 
 ![main](https://github.com/Quan-p/Blog-API-Client/blob/main/public/gifs/CMS01.gif)
 
-### Writing a Comment
+### Creating and Deleting a New Post
 
 ![main](https://github.com/Quan-p/Blog-API-Client/blob/main/public/gifs/CMS02.gif)
 
