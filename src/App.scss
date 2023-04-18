@@ -1,20 +1,21 @@
+@import './variables/colors';
+
 body {
-  background-color: #FEFAE0;
+	background-color: $off-white;
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
 main {
-  flex-grow: 1;
-  flex-shrink: 0;
+	flex-grow: 1;
+	flex-shrink: 0;
 }
 
 .nav-container {
-  position: sticky;
-  top: 0;
+	position: sticky;
+	top: 0;
 }
-
