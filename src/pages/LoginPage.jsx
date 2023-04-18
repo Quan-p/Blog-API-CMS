@@ -47,7 +47,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
 		<div className='body'>
 			<div className='login-container'>
 				{isLoading ? (
-					<BounceLoader color='#D4A373' size={25} />
+					<BounceLoader color='#1d3557' size={25} />
 				) : (
 					<form className='login-form' onSubmit={handleSubmit}>
 						<label>Username:</label>
