@@ -1,41 +1,51 @@
+@import '../variables/colors';
+
 .dashboard-container {
-    background-color: #FEFAE0;
-    padding: 100px;
+	background-color: $off-white;
+	color: $dark-blue;
+	padding: 100px;
 
-    .dashboard-header {
-        margin: 0;
-        font-size: 2rem;
-    }
+	.dashboard-header {
+		margin: 0;
+		font-size: 2rem;
+	}
 
-    .dashboard-content {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+	.dashboard-content {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .posts-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        margin: 0 auto;
-        max-width: 100%;
-    }
+	.posts-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		margin: 0 auto;
+		max-width: 100%;
+	}
 
-    .post-container {
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 20px;
+	.post-container {
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+		border-radius: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 20px;
+		background-color: $dull-blue;
+		color: $off-white;
 
-        .post-content {
-            padding: 20px;
-            
-            .title-header {
-                margin: 0;
-            }
-        }
-    }
+		.post-content {
+			padding: 20px;
+
+			.title-header {
+				margin: 0;
+			}
+
+			button {
+				background-color: $off-white;
+				color: $dark-blue;
+			}
+		}
+	}
 }

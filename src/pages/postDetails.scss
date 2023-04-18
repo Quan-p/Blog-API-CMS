@@ -1,5 +1,8 @@
+@import '../variables/colors';
+
 .details-container {
-	background-color: #fefae0;
+	background-color: $off-white;
+	color: $dark-blue;
 
 	.details-header {
 		margin-top: 40px;
@@ -16,6 +19,8 @@
 	align-items: center;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	border-radius: 15px;
+	background-color: $dull-blue;
+	color: $off-white;
 	margin: 40px;
 	padding: 40px;
 
@@ -48,11 +53,12 @@
 		padding: 20px;
 		width: 150px;
 		border-radius: 25px;
-		background-color: #ccd5ae;
+		background-color: $off-white;
 	}
 
 	button:hover {
-		color: #fefae0;
+		background-color: $dark-blue;
+		color: $white;
 	}
 
 	.confirm-msg {

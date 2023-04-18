@@ -1,74 +1,79 @@
+@import '../../variables/colors';
+
 .comments-container {
-    display: grid;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 15px;
-    margin: 40px;
-    padding: 40px;
+	display: grid;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border-radius: 15px;
+	margin: 40px;
+	padding: 40px;
 
-    .comments-header {
-        text-align: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-    }
+	.comments-header {
+		text-align: center;
+		border-bottom: 1px solid rgba(29, 53, 87, 0.16);
+	}
 
-    .comments-list div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+	.comments-list div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .comment-item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-    }
+	.comment-item {
+		border-bottom: 1px solid rgba(29, 53, 87, 0.16);
+	}
 
-    label {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        font-size: 1.2rem;
-        font-weight: 500;
+	label {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		font-size: 1.2rem;
+		font-weight: 500;
 
-        h3, h4, .comment-text {
-            font-size: 1rem;
-            font-weight: normal;
-        }
-    }
-    button {
-        margin: 10px;
-        padding: 12px;
-        width: 120px;
-        font-size: 1rem;
-        border-radius: 25px;
-        background-color: #CCD5AE;
-    }
+		h3,
+		h4,
+		.comment-text {
+			font-size: 1rem;
+			font-weight: normal;
+		}
+	}
+	button {
+		margin: 10px;
+		padding: 12px;
+		width: 120px;
+		font-size: 1rem;
+		border-radius: 25px;
+		background-color: $dull-blue;
+	}
 
-    button:hover {
-        color:#FEFAE0;
-    }
+	button:hover {
+		color: $white;
+	}
 }
 
 .modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(250, 237, 205, 0.900);;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    width: 400px;
-    height: 400px;
-    max-width: 90%;
-    padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: $light-blue;
+	opacity: 0.9;
+	border-radius: 15px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	width: 400px;
+	height: 400px;
+	max-width: 90%;
+	padding: 20px;
 
-    .confirm-message {
-        font-size: 1.5rem;
-        text-align: center;
-        font-weight: 700;
-    }
+	.confirm-message {
+		font-size: 1.5rem;
+		text-align: center;
+		font-weight: 700;
+	}
 }

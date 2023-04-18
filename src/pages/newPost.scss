@@ -1,6 +1,9 @@
+@import '../variables/colors';
+
 .form-container {
 	display: flex;
 	flex-direction: column;
+	color: $dark-blue;
 
 	.newPost-header {
 		margin-top: 40px;
@@ -18,6 +21,8 @@
 		border-radius: 15px;
 		padding: 40px;
 		margin: 40px;
+		background-color: $dull-blue;
+		color: $off-white;
 
 		label {
 			font-size: 1.5rem;
@@ -48,12 +53,13 @@
 			padding: 20px;
 			width: 150px;
 			border-radius: 25px;
-			background-color: #ccd5ae;
+			background-color: $off-white;
 			font-size: 1.2rem;
 		}
 
 		button:hover {
-			color: #fefae0;
+			background-color: $dark-blue;
+			color: $white;
 		}
 
 		.published-container {
@@ -91,12 +97,14 @@
 		padding: 20px;
 		width: 150px;
 		border-radius: 25px;
-		background-color: #ccd5ae;
+		color: $dark-blue;
+		background-color: $off-white;
 		font-size: 1.2rem;
 	}
 
 	button:hover {
-		color: #fefae0;
+		background-color: $dark-blue;
+		color: $white;
 	}
 
 	.confirm-message {
