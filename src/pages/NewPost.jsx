@@ -9,7 +9,7 @@ const NewPost = () => {
 	const [published, setPublished] = useState();
 	const [showModal, setShowModal] = useState(false);
 
-	const username = localStorage.getItem('username');
+	const username = sessionStorage.getItem('username');
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -27,14 +27,14 @@ const NewPost = () => {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
-						Authorization: `Bearer ${localStorage.getItem(
+						Authorization: `Bearer ${sessionStorage.getItem(
 							'jwtToken'
 						)}`,
 					},
 					body: JSON.stringify({
 						title,
 						content,
-						author: localStorage.getItem('authorId'),
+						author: sessionStorage.getItem('authorId'),
 						published,
 					}),
 				}
