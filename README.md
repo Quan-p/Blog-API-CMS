@@ -23,11 +23,11 @@ Creating a blog from the ground up was an opportunity to further develop REST AP
 
 ### Loggin into CMS
 
-![main](https://github.com/Quan-p/Blog-API-Client/blob/main/public/gifs/CMS01.gif)
+![main](https://github.com/Quan-p/Blog-API-CMS/blob/main/public/gifs/CMS01.gif)
 
 ### Creating and Deleting a New Post
 
-![main](https://github.com/Quan-p/Blog-API-Client/blob/main/public/gifs/CMS02.gif)
+![main](https://github.com/Quan-p/Blog-API-CMS/blob/main/public/gifs/CMS02.gif)
 
 ## Built With
 
